@@ -15,6 +15,7 @@ class Searche(Helper):
     orange = (By.XPATH, "//span[text()='Orange']")
     result_text = (By.CSS_SELECTOR, "span.ns-z")
     visible_product_count = (By.XPATH, '//*[@id="products"]/article')
+    products_elements = (By.CSS_SELECTOR, "#products > article > a")
 
     def search_item(self):
         self.find_and_send_keys(self.search_field, config.text_data)
@@ -35,19 +36,20 @@ class Searche(Helper):
         return int(text.split()[0])
     
     def get_all_product_brands(self):
-        brand_elements = self.driver.find_elements(By.XPATH, "//div[@class='sr-brand-name']")
+        brand_elements = self.driver.find_elements(*self.products_elements) 
         return [el.text.strip() for el in brand_elements]
 
     def get_all_product_prices(self):
-        price_elements = self.driver.find_elements(By.CSS_SELECTOR, "#products > article > a")  
+        price_elements = self.driver.find_elements(*self.products_elements)  
         prices = []
         for el in price_elements:
             price_text = el.text.strip()  
-            price_text = price_text.replace("$", "").replace(",", "")
+            price_text = price_text.replace("$", "")
             try:
-                price = float(price_text)
+                price = float(price_text)       
                 prices.append(price)
             except ValueError:
                 continue
         return prices
+    
         

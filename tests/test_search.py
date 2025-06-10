@@ -26,7 +26,7 @@ def test_valid_data(test_driver, test_logger):
     for p in prices:
         assert p <= 200.0, f"Price out of range: {p}"
 
-    test_logger.info("All test is succesful")
+    test_logger.info(f"All test is finished")
 
 
 
