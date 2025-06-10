@@ -18,6 +18,9 @@ def test_valid_data(test_driver, test_logger):
 
     assert visible_count == result_count, f"Visible items ({visible_count}) don't match reported count ({result_count})"
 
+    price = searche_obj.compare_price_result()
+    print(price)
+
     
    
 

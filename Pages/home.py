@@ -15,6 +15,7 @@ class Searche(Helper):
     orange = (By.XPATH, "//span[text()='Orange']")
     result_text = (By.CSS_SELECTOR, "span.ns-z")
     visible_product_count = (By.XPATH, '//*[@id="products"]/article')
+    price_elements = (By.XPATH, '//*[@id="products"]/article/a/text()[2]')
 
     def search_item(self):
         self.find_and_send_keys(self.search_field, config.text_data)
@@ -33,6 +34,13 @@ class Searche(Helper):
     def get_reported_result_count(self):
         text = self.driver.find_element(*self.result_text).text
         return int(text.split()[0])
+    
+    def compare_price_result(self):
+        price = self.find_elem_dom(self.price_elements).text
+        duration = price.split('duration:')[1]
+
+        return duration.replace("$", "")
+    
     
     
     
