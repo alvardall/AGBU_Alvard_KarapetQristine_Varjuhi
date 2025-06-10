@@ -18,11 +18,23 @@ def test_valid_data(test_driver, test_logger):
 
     assert visible_count == result_count, f"Visible items ({visible_count}) don't match reported count ({result_count})"
 
-    price = searche_obj.compare_price_result()
-    print(price)
+    brands = searche_obj.get_all_product_brands()
+    for b in brands:
+        assert config.brand.lower() in b.lower(), f"Unexpected brand: {b}"
 
-    
-   
+    prices = searche_obj.get_all_product_prices()
+    for p in prices:
+        assert p <= 200.0, f"Price out of range: {p}"
+
+    test_logger.info("All test is succesful")
+
+
+
+
+
+
+
+    # home_obj.find_and_click(home_obj.btn_register_home)
 
     # # register user
     # register_obj = Register(test_driver, test_logger)
