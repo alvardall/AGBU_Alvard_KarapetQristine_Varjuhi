@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from Helpers.general_helpers import Helper
 import Teastdata.config as config
+import re
 
 
 class Searche(Helper):
@@ -37,14 +38,15 @@ class Searche(Helper):
     
     def get_all_product_brands(self):
         brand_elements = self.driver.find_elements(*self.products_elements) 
-        return [el.text.strip() for el in brand_elements]
+        brand = [el.text.split(" -")[0] for el in brand_elements]
+        return [el.lower() for el in brand] 
 
     def get_all_product_prices(self):
         price_elements = self.driver.find_elements(*self.products_elements)  
         prices = []
         for el in price_elements:
-            price_text = el.text.strip()  
-            price_text = price_text.replace("$", "")
+            price_text = el.text.split("$")[1]  
+            price_text = price_text.split(". MSRP")[0]
             try:
                 price = float(price_text)       
                 prices.append(price)
