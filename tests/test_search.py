@@ -17,18 +17,18 @@ def test_valid_data(test_driver, test_logger):
     visible_count = searche_obj.get_visible_product_count()
 
     assert visible_count == result_count, f"Visible items ({visible_count}) don't match reported count ({result_count})"
-    test_logger.info("✅ Visible count matches reported count")
+    test_logger.info("Visible count matches reported count")
 
     brands = searche_obj.get_all_product_brands()
     
     assert config.brand.lower() in brands, f"Unexpected brand: {brands}"
-    test_logger.info(f"✅ Brand '{brands}' matches expected '{config.brand}'")
+    test_logger.info(f" Brand '{brands}' matches expected '{config.brand}'")
 
     prices = searche_obj.get_all_product_prices()
     
     for p in prices:
         assert p <= 200.0, f"Price out of range: {p}"
-    test_logger.info(f"✅ Price within range: {p}")
+    test_logger.info(f" Price within range: {p}")
 
     test_logger.info(f"All test is finished")
 
