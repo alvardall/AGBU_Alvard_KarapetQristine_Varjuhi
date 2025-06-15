@@ -1,0 +1,6 @@
+2025-06-15 21:30:31,518 - INFO - test_valid_data is started
+2025-06-15 21:30:59,079 - INFO - https://www.6pm.com/ is opened.
+2025-06-15 21:31:05,456 - INFO - Performed search
+2025-06-15 21:31:05,489 - INFO - RESULT COUNT: 1
+2025-06-15 21:31:06,180 - INFO - All test is finished
+2025-06-15 21:31:06,182 - INFO - test_valid_data is finished

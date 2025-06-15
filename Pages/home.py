@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from Helpers.general_helpers import Helper
 import Teastdata.config as config
-import re
 
 
 class Searche(Helper):
@@ -11,10 +10,10 @@ class Searche(Helper):
     color = (By.XPATH, '//*[@data-test-id-facet-head-name = "Color"]')
     brand = (By.XPATH, "//*[@data-test-id-facet-head-name = 'Brand']")
     price = (By.XPATH, '//*[@data-test-id-facet-head-name = "Price"]')
-    raen_optics = (By.XPATH, "//a[@class='it-z']/span[text()='RAEN Optics']")
+    raen_optics = (By.XPATH, "//a[@class='Ss-z']/span[text()='RAEN Optics']")
     price_dol200 = (By.XPATH, "//span[text()='$200.00 and Under']") 
     orange = (By.XPATH, "//span[text()='Orange']")
-    result_text = (By.CSS_SELECTOR, "span.ns-z")
+    result_text = (By.CSS_SELECTOR, "span.ft-z")
     visible_product_count = (By.XPATH, '//*[@id="products"]/article')
     products_elements = (By.CSS_SELECTOR, "#products > article > a")
 
@@ -42,7 +41,8 @@ class Searche(Helper):
         return [el.lower() for el in brand] 
 
     def get_all_product_prices(self):
-        price_elements = self.driver.find_elements(*self.products_elements)  
+        price_elements = self.driver.find_elements(*self.products_elements)
+        print(f"price = : {price_elements}")  
         prices = []
         for el in price_elements:
             price_text = el.text.split("$")[1]  
