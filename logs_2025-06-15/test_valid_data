@@ -1,9 +1,0 @@
-2025-06-15 21:46:49,601 - INFO - test_valid_data is started
-2025-06-15 21:46:58,059 - INFO - https://www.6pm.com/ is opened.
-2025-06-15 21:47:05,060 - INFO - Performed search
-2025-06-15 21:47:05,106 - INFO - RESULT COUNT: 1
-2025-06-15 21:47:05,648 - INFO - Visible count matches reported count
-2025-06-15 21:47:05,674 - INFO -  Brand '['raen optics']' matches expected 'RAEN Optics'
-2025-06-15 21:47:05,714 - INFO -  Price within range: 129.46
-2025-06-15 21:47:05,714 - INFO - All test is finished
-2025-06-15 21:47:05,716 - INFO - test_valid_data is finished
