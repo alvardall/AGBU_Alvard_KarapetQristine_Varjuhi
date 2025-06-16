@@ -4,13 +4,16 @@ import logging
 import os
 from datetime import datetime
 import allure
+from selenium.webdriver.chrome.options import Options
+
+
 
 
 
 
 @pytest.fixture()
 def test_driver():
-    options = webdriver.ChromeOptions()
+    options = Options()
     options.add_argument('--headless')
     #driver = webdriver.Chrome
     driver = webdriver.Chrome(options=options)
