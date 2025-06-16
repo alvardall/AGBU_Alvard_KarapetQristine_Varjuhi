@@ -48,7 +48,7 @@ class Helper():
     
     def hover_element(self, loc):
         actions = ActionChains(self.driver)
-        hover = actions.move_to_element(self.find_elem_ui(loc)).pause(1)
+        hover = actions.move_to_element(self.find_elem_ui(loc)).pause(0.5)
         hover.perform()
 
     def wait_and_get_elements(self, locator, timeout=10):
@@ -56,6 +56,12 @@ class Helper():
             EC.presence_of_all_elements_located(locator)
         )
         return self.driver.find_elements(*locator)
+    
+    #make locator dynamic
+    def make_locator(self, *args):
+        return args[0][0], args[0][1] % args[1:]
+    
+
             
         
    
