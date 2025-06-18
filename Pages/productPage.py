@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from Helpers.general_helpers import Helper
 
+
 class ProductPage(Helper):
     add_to_bag_button = (By.ID, "add-to-cart-button") 
     view_bag_button = (By.XPATH, "//form[contains(@action, 'checkout')]//a[contains(., 'View Bag')]")      
