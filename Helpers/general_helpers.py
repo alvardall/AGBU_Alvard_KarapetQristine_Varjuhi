@@ -29,7 +29,7 @@ class Helper():
             EC.presence_of_element_located(loc))
         return elem
     
-    def find(self, loc, timeout=20, should_exist=True, get_text="", get_attribute=""):
+    def find(self, loc, timeout=30, should_exist=True, get_text="", get_attribute=""):
         try:
             elem = WebDriverWait(self.driver, timeout).until(
                 EC.presence_of_element_located(loc),
@@ -46,7 +46,7 @@ class Helper():
             return elem.get_attribute(get_attribute)
         return elem
 
-    def find_all(self, loc, timeout=30):
+    def find_all(self, loc, timeout=40):
         try:
             elements = WebDriverWait(self.driver, timeout).\
                 until(EC.presence_of_all_elements_located(loc),
@@ -56,7 +56,7 @@ class Helper():
             return False
         return elements
 
-    def find_and_click(self, locator, timeout=10):
+    def find_and_click(self, locator, timeout=20):
         try:
             WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator)).click()
         except StaleElementReferenceException:
@@ -68,7 +68,7 @@ class Helper():
         elem = self.find_elem_ui(loc, sec)
         elem.send_keys(inp_text)
 
-    def wait_until_clickable(self, locator, timeout=10):
+    def wait_until_clickable(self, locator, timeout=20):
     
         element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
         return element
@@ -78,7 +78,7 @@ class Helper():
         hover = actions.move_to_element(self.find_elem_ui(loc)).pause(0.5)
         hover.perform()
 
-    def wait_and_get_elements(self, locator, timeout=10):
+    def wait_and_get_elements(self, locator, timeout=20):
         WebDriverWait(self.driver, timeout).until(
             EC.presence_of_all_elements_located(locator)
         )

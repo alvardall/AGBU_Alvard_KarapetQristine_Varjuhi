@@ -6,8 +6,10 @@ from Pages.loginPage import LoginPage
 from Pages.searchPage import Searche
 from Pages.productPage import ProductPage
 from Pages.bagPage import BagPage
+import pytest
 
 
+@pytest.mark.order(3)
 def test_add_to_bag_functionality(test_driver, test_logger):
     login_page = LoginPage(test_driver, test_logger)
     search_page = Searche(test_driver, test_logger)
@@ -16,9 +18,7 @@ def test_add_to_bag_functionality(test_driver, test_logger):
 
     login_page.go_to_page(config.url)
     login_page.login()
-
     search_page.search_item()
-
     product_page.select_product(index=0)
     first_price = product_page.get_product_price()
     product_page.add_to_bag()

@@ -4,8 +4,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import config 
 import Testdata.data as data
 from Pages.searchPage import Searche
+import pytest
 
-
+@pytest.mark.order(1)
 def test_search_valid_data(test_driver, test_logger):
 
     searche_obj = Searche(test_driver, test_logger)

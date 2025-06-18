@@ -6,8 +6,10 @@ from Pages.loginPage import LoginPage
 from Pages.accessories import AccessoriesPage
 from Pages.favoritesPage import FavoritesPage
 import Testdata.data as data
+import pytest
 
 
+@pytest.mark.order(2)
 def test_favorites_feature(test_driver, test_logger):
     login_page = LoginPage(test_driver, test_logger)
     accessories_page = AccessoriesPage(test_driver, test_logger)
