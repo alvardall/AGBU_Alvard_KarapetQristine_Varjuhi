@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import config
-from Pages.LoginPage import LoginPage
+from Pages.loginPage import LoginPage
 from Pages.searchPage import Searche
 from Pages.productPage import ProductPage
 from Pages.bagPage import BagPage

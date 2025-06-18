@@ -18,8 +18,7 @@ def test_favorites_feature(test_driver, test_logger):
     
     accessories_page.go_to_accessories()
     accessories_page.select_watches()
-    accessories_page.clear_favorites()
-    test_logger.info("Previously selected favorites have been deleted")
+    
     accessories_page.add_favorites(count=len(data.favorites_to_add))
 
     favorites_page.go_to_favorites()
@@ -28,4 +27,7 @@ def test_favorites_feature(test_driver, test_logger):
 
     assert favorite_items == len(data.favorites_to_add), f"Favorite items count is not maches"
 
-    
+    accessories_page.go_to_accessories()
+    accessories_page.select_watches()
+    accessories_page.clear_favorites()
+    test_logger.info("Previously selected favorites have been deleted")
